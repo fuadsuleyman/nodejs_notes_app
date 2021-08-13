@@ -1,3 +1,5 @@
 const fs = require('fs');
 
-fs.writeFileSync('notes.txt', 'This file created by node.js!');
+fs.writeFileSync('notes.txt', 'My name is Fuad Suleymanov!');
+
+fs.appendFileSync('notes.txt', 'I am a programmer.');
