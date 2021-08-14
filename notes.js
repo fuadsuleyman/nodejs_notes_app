@@ -1,9 +1,5 @@
-const fs = require('fs');
-
-exports.createNote = (note) => {
-    console.log('Note is added!')
+const getNote = () => {
+    return 'Your notes...'
 }
 
-exports.getPosts = () => {
-    console.log('Notes are fetched!')
-}
+module.exports = getNote;
