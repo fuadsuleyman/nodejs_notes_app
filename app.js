@@ -3,7 +3,7 @@ const noteController = require('./notes');
 const yargs = require('yargs');
 
 console.log(`getNotes: ${noteController.getNotes()}`);
-console.log(`addNote: ${noteController.addNote()}`);
+
 
 
 // as bolow write in terminal we run below command's handlers
@@ -26,7 +26,8 @@ yargs.command({
         }
     },
     handler: (argv) =>{
-        console.log(chalk.green.bold(`Note title: ${chalk.yellowBright.bold(argv.title)}, Note body: ${chalk.yellowBright.bold(argv.body)}`));
+        noteController.addNote(argv.title, argv.body);
+        // console.log(chalk.green.bold(`Note title: ${chalk.yellowBright.bold(argv.title)}, Note body: ${chalk.yellowBright.bold(argv.body)}`));
     }
 });
 
