@@ -10,8 +10,20 @@ const yargs = require('yargs');
 yargs.command({
     command: 'add',
     describe: 'Add new note.',
-    handler: () =>{
-        console.log(chalk.green.bold('New note is added.'));
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        },
+        body: {
+            describe: 'Note body',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: (argv) =>{
+        console.log(chalk.green.bold(`Note title: ${chalk.yellowBright.bold(argv.title)}, Note body: ${chalk.yellowBright.bold(argv.body)}`));
     }
 });
 
@@ -43,4 +55,7 @@ yargs.command({
     }
 });
 
-console.log(yargs.argv);
+yargs.parse();
+
+// this below or above yargs.parse() one of them is must, other wice we can't get output
+// console.log(yargs.argv);
