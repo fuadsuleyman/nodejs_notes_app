@@ -27,7 +27,6 @@ yargs.command({
     },
     handler: (argv) =>{
         noteController.addNote(argv.title, argv.body);
-        // console.log(chalk.green.bold(`Note title: ${chalk.yellowBright.bold(argv.title)}, Note body: ${chalk.yellowBright.bold(argv.body)}`));
     }
 });
 
@@ -36,8 +35,15 @@ yargs.command({
 yargs.command({
     command: 'remove',
     describe: 'Note is removed.',
-    handler: () =>{
-        console.log(chalk.red.bold('Note is removed.'));
+    builder: {
+        title: {
+            describe: 'Remove note with this title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: (argv) =>{
+        noteController.removeNote(argv.title);
     }
 });
 
