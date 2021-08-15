@@ -1,6 +1,9 @@
 const chalk = require('chalk');
-const getNote = require('./notes');
+const noteController = require('./notes');
 const yargs = require('yargs');
+
+console.log(`getNotes: ${noteController.getNotes()}`);
+console.log(`addNote: ${noteController.addNote()}`);
 
 
 // as bolow write in terminal we run below command's handlers

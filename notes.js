@@ -1,5 +1,14 @@
-const getNote = () => {
+const getNotes = () =>{
     return 'Your notes...'
 }
 
-module.exports = getNote;
+
+const addNote = () => {
+    return 'Note Added...'
+}
+
+
+module.exports = {
+    'getNotes': getNotes,
+    'addNote': addNote
+}
