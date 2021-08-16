@@ -2,10 +2,6 @@ const chalk = require('chalk');
 const noteController = require('./notes');
 const yargs = require('yargs');
 
-console.log(`getNotes: ${noteController.getNotes()}`);
-
-
-
 // as bolow write in terminal we run below command's handlers
 // node app.js add - run add command handler and etc
 

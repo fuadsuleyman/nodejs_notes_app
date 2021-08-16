@@ -1,9 +1,5 @@
 const fs = require('fs');
 const chalk = require('./chalk');
-const getNotes = () =>{
-    return 'Your notes...'
-}
-
 
 const addNote = (title, body) => {
     const notes = loadNotes();
@@ -54,7 +50,8 @@ const readNote = (title) => {
     if (!readedNote){
         console.log(chalk.error('Note with this title not exists!'))
     } else {
-        console.log(chalk.success(`Note title: ${chalk.warning(readedNote.title)}, Note body: ${chalk.warning(readedNote.body)}`))
+        console.log(chalk.success(`Note title: ${chalk.warning(readedNote.title)}`))
+        console.log(chalk.success(`Note body: ${chalk.warning(readedNote.body)}`))
     }
 }
 
@@ -75,7 +72,6 @@ const loadNotes = () => {
 }
 
 module.exports = {
-    'getNotes': getNotes,
     'addNote': addNote,
     'removeNote': removeNote,
     'listNotes': listNotes,
