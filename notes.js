@@ -7,9 +7,14 @@ const getNotes = () =>{
 
 const addNote = (title, body) => {
     const notes = loadNotes();
-    const dublicatesNotes = notes.filter(note => note.title === title)
 
-    if(dublicatesNotes.length === 0) {
+    // filter method when filter one dublikate don't stop
+    // const dublicatesNotes = notes.filter(note => note.title === title)
+
+    // find method when find one dublicate stop to search 
+    const dublicateNote = notes.find(note => note.title === title)
+
+    if(!dublicateNote) {
         notes.push({
             'title': title,
             'body': body
@@ -42,16 +47,15 @@ const listNotes = () => {
 
 const readNote = (title) => {
     notes = loadNotes();
-    let readedNote = []
-    readedNote = notes.filter(note => note.title === title);
+    
+    // readedNote = notes.filter(note => note.title === title);
+    const readedNote = notes.find(note => note.title === title);
 
-    if (readedNote.length === 0){
+    if (!readedNote){
         console.log(chalk.error('Note with this title not exists!'))
     } else {
-        console.log(chalk.success(`Note title: ${chalk.warning(readedNote[0].title)}, Note body: ${chalk.warning(readedNote[0].body)}`))
+        console.log(chalk.success(`Note title: ${chalk.warning(readedNote.title)}, Note body: ${chalk.warning(readedNote.body)}`))
     }
-
-
 }
 
 
