@@ -10,6 +10,8 @@ const addNote = (title, body) => {
     // find method when find one dublicate stop to search 
     const dublicateNote = notes.find(note => note.title === title)
 
+    // debugger
+
     if(!dublicateNote) {
         notes.push({
             'title': title,
