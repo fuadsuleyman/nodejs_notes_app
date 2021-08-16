@@ -34,6 +34,27 @@ const removeNote = (title) => {
     }
 }
 
+const listNotes = () => {
+    console.log(chalk.success('Your Notes...'));
+    const notes = loadNotes();
+    notes.forEach(note => console.log(chalk.warning(note.title)));
+}
+
+const readNote = (title) => {
+    notes = loadNotes();
+    let readedNote = []
+    readedNote = notes.filter(note => note.title === title);
+
+    if (readedNote.length === 0){
+        console.log(chalk.error('Note with this title not exists!'))
+    } else {
+        console.log(chalk.success(`Note title: ${chalk.warning(readedNote[0].title)}, Note body: ${chalk.warning(readedNote[0].body)}`))
+    }
+
+
+}
+
+
 const saveNotes = (notes) => {
     const dataJson = JSON.stringify(notes);
     fs.writeFileSync('notes.json', dataJson);
@@ -52,5 +73,7 @@ const loadNotes = () => {
 module.exports = {
     'getNotes': getNotes,
     'addNote': addNote,
-    'removeNote': removeNote
+    'removeNote': removeNote,
+    'listNotes': listNotes,
+    'readNote': readNote
 }

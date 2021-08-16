@@ -52,7 +52,8 @@ yargs.command({
     command: 'list',
     describe: 'Notes are listed.',
     handler(){
-        console.log(chalk.blue.bold('Notes are listed.'));
+        noteController.listNotes();
+        // console.log(chalk.blue.bold('Notes are listed.'));
     }
 });
 
@@ -60,8 +61,16 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'Note is readed.',
-    handler(){
-        console.log(chalk.yellowBright.bold('Note is readed.'));
+    builder: {
+        title: {
+            describe: 'Remove note with this title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler(argv){
+        noteController.readNote(argv.title);
+        // console.log(chalk.yellowBright.bold('Note is readed.'));
     }
 });
 
