@@ -7,9 +7,7 @@ const getNotes = () =>{
 
 const addNote = (title, body) => {
     const notes = loadNotes();
-    const dublicatesNotes = notes.filter(note => {
-        return note.title === title
-    })
+    const dublicatesNotes = notes.filter(note => note.title === title)
 
     if(dublicatesNotes.length === 0) {
         notes.push({
@@ -27,12 +25,10 @@ const addNote = (title, body) => {
 const removeNote = (title) => {
     const notes = loadNotes();
 
-    const newNotes = notes.filter(note => {
-        return note.title !== title;
-    })
+    const newNotes = notes.filter(note => note.title !== title)
     if (notes.length !== newNotes.length) {
         saveNotes(newNotes);
-        console.log(chalk.error(`Note with this title: ${chalk.warning(title)} is removed!`));
+        console.log(chalk.success(`Note with this title: ${chalk.warning(title)} is removed!`));
     } else {
         console.log(chalk.error(`Note with this title: ${chalk.warning(title)} not exists!`));
     }
